@@ -61,7 +61,7 @@ import urllib
 import re
 import bz2
 import os.path
-from htmlentitydefs import name2codepoint
+from html.entities import name2codepoint
 
 ### PARAMS ####################################################################
 
@@ -594,7 +594,7 @@ def process_data(input, output):
             colon = title.find(':')
             if (colon < 0 or title[:colon] in acceptedNamespaces) and \
                     not redirect:
-                print id, title.encode('utf-8')
+                print(id, title.encode('utf-8'))
                 sys.stdout.flush()
                 WikiDocument(output, id, title, ''.join(page))
             id = None
@@ -662,7 +662,7 @@ def main():
         elif opt in ('-o', '--output'):
                 output_dir = arg
         elif opt in ('-v', '--version'):
-                print 'WikiExtractor.py version:', version
+                print('WikiExtractor.py version:', version)
                 sys.exit(0)
 
     if len(args) > 0:
